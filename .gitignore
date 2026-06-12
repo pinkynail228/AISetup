@@ -1,0 +1,13 @@
+# dependencies / build output
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# generated data (rebuilt by apps/web/scripts/build-data.mjs)
+apps/web/public/registry.json
+apps/web/data/
+
+# misc
+.DS_Store
