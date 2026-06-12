@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ─── Primitive tokens ─────────────────────────────────────── */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --color-ink-950: oklch(18% 0.02 260);
+  --color-ink-700: oklch(40% 0.02 260);
+  --color-ink-500: oklch(56% 0.015 260);
+  --color-ink-200: oklch(88% 0.006 260);
+  --color-ink-100: oklch(94% 0.004 260);
+  --color-ink-50: oklch(97.5% 0.003 260);
+  --color-white: oklch(100% 0 0);
+
+  --color-blue-700: oklch(44% 0.17 258);
+  --color-blue-600: oklch(51% 0.19 258);
+  --color-blue-100: oklch(93.5% 0.04 258);
+
+  --color-green-700: oklch(45% 0.11 152);
+  --color-green-100: oklch(94% 0.05 152);
+  --color-amber-800: oklch(46% 0.1 76);
+  --color-amber-100: oklch(95% 0.06 86);
+  --color-red-700: oklch(46% 0.15 26);
+  --color-red-100: oklch(94% 0.04 26);
+
+  /* ─── Semantic aliases ───────────────────────────────────── */
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-ink-50);
+  --color-text: var(--color-ink-950);
+  --color-muted: var(--color-ink-700);
+  --color-faint: var(--color-ink-500);
+  --color-border: var(--color-ink-200);
+  --color-primary: var(--color-blue-600);
+  --color-primary-hover: var(--color-blue-700);
+  --color-primary-subtle: var(--color-blue-100);
+  --color-ok: var(--color-green-700);
+  --color-ok-subtle: var(--color-green-100);
+  --color-warn: var(--color-amber-800);
+  --color-warn-subtle: var(--color-amber-100);
+  --color-danger: var(--color-red-700);
+  --color-danger-subtle: var(--color-red-100);
+}
