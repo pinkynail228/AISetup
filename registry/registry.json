@@ -1,0 +1,47 @@
+{
+  "name": "Setups Hub",
+  "repo": "https://github.com/pinkynail228/AISetup",
+  "generated_at": "2026-06-12T19:01:21.991Z",
+  "setups_count": 1,
+  "setups": [
+    {
+      "id": "website-setup",
+      "name": "Website Build Setup (Codex)",
+      "description": "Content-first website build pipeline for OpenAI Codex: 9 phases with 4 hard human review gates — strategy, IA, copy, validation and lo-fi wireframes, design tokens, UI primitives, page assembly, QA and launch. Includes phase skills, DoD checklists, artifact templates and stack conventions.",
+      "version": "1.0.0",
+      "released": "2026-06-12",
+      "updated": "2026-06-12",
+      "target_agent": "openai-codex",
+      "entrypoint": "AGENTS.md",
+      "phases": 9,
+      "gates": 4,
+      "tags": [
+        "website",
+        "marketing-site",
+        "codex",
+        "nextjs",
+        "tailwind-v4",
+        "content-first"
+      ],
+      "stack": [
+        "nextjs-app-router",
+        "typescript",
+        "tailwind-v4",
+        "react"
+      ],
+      "files_count": 32,
+      "download_url": "https://github.com/pinkynail228/AISetup/releases/download/website-setup@1.0.0/website-setup-1.0.0.zip",
+      "source_url": "https://github.com/pinkynail228/AISetup/tree/main/setups/website-setup",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-06-12",
+          "type": "initial",
+          "notes": "Initial release. 9-phase content-first pipeline with 4 hard review gates, 9 phase skills (Codex native .agents/skills format), per-phase DoD checklists, artifact templates, Tailwind v4 / Next.js App Router stack conventions, DTCG design tokens.",
+          "migration": null,
+          "download_url": "https://github.com/pinkynail228/AISetup/releases/download/website-setup@1.0.0/website-setup-1.0.0.zip"
+        }
+      ]
+    }
+  ]
+}
