@@ -1,0 +1,46 @@
+# Setup package metadata — machine- and human-readable.
+id: website-setup
+name: Website Build Setup (Codex)
+description: >
+  Content-first website build pipeline for OpenAI Codex: 9 phases with 4 hard
+  human review gates — strategy, IA, copy, validation and lo-fi wireframes,
+  design tokens, UI primitives, page assembly, QA and launch. Includes phase
+  skills, DoD checklists, artifact templates and stack conventions.
+version: 1.0.0
+released: 2026-06-12
+target_agent: openai-codex        # primary; any AGENTS.md-compatible agent works
+entrypoint: AGENTS.md
+pipeline: process/PIPELINE.md
+phases: 9
+gates: 4
+tags:
+  - website
+  - marketing-site
+  - codex
+  - nextjs
+  - tailwind-v4
+  - content-first
+stack:
+  - nextjs-app-router
+  - typescript
+  - tailwind-v4
+  - react
+language:
+  instructions: en
+  readme: ru
+  site_copy: configurable (set in site/strategy.md)
+owned_paths:                      # replaced when updating the setup in a project; everything else belongs to the project
+  - AGENTS.md
+  - MANIFESTO.md
+  - process/
+  - .agents/
+  - docs/
+changelog:
+  - version: 1.0.0
+    date: 2026-06-12
+    type: initial
+    notes: >
+      Initial release. 9-phase content-first pipeline with 4 hard review gates,
+      9 phase skills (Codex native .agents/skills format), per-phase DoD
+      checklists, artifact templates, Tailwind v4 / Next.js App Router
+      stack conventions, DTCG design tokens.
