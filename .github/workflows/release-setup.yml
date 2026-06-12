@@ -1,0 +1,50 @@
+name: Release setups
+
+# Releases every setup whose SETUP.yaml version has no published release yet.
+# Triggered on any change under setups/ on main (and manually). Creating the
+# release also creates the id@version tag, so no manual tagging is needed.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "setups/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Release new setup versions
+        run: |
+          set -euo pipefail
+          released=0
+          for manifest in setups/*/SETUP.yaml; do
+            id=$(awk -F': *' '$1=="id"{print $2; exit}' "$manifest")
+            version=$(awk -F': *' '$1=="version"{print $2; exit}' "$manifest")
+            if [ -z "$id" ] || [ -z "$version" ]; then
+              echo "::error::$manifest: could not parse id/version"; exit 1
+            fi
+            tag="${id}@${version}"
+            if gh release view "$tag" >/dev/null 2>&1; then
+              echo "$tag already released — skip"
+              continue
+            fi
+            asset="${id}-${version}.zip"
+            (cd setups && zip -rq "../$asset" "$id")
+            gh release create "$tag" "$asset" \
+              --title "$tag" \
+              --notes "Automated release of \`$id\` v$version. Changelog: [SETUP.yaml](https://github.com/${GITHUB_REPOSITORY}/blob/main/setups/$id/SETUP.yaml)"
+            echo "Released $tag"
+            released=$((released+1))
+          done
+          echo "Done. New releases: $released"
