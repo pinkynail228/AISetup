@@ -112,6 +112,7 @@ const registry = {
 
 mkdirSync(path.join(repoRoot, "registry"), { recursive: true });
 writeFileSync(path.join(repoRoot, "registry", "registry.json"), JSON.stringify(registry, null, 2) + "\n");
+mkdirSync(path.join(webRoot, "public"), { recursive: true }); // public/ holds only generated files and is absent in a fresh checkout
 writeFileSync(path.join(webRoot, "public", "registry.json"), JSON.stringify(registry, null, 2) + "\n");
 mkdirSync(path.join(webRoot, "data"), { recursive: true });
 writeFileSync(path.join(webRoot, "data", "catalog.json"), JSON.stringify(richEntries, null, 2) + "\n");
